@@ -26,3 +26,22 @@ sunIcon.addEventListener('click', function () {
 //Gjøremåls liste knapp og input greier
 
 const sendButton = document.querySelector('#sendButton');
+console.log(sendButton);
+
+sendButton.addEventListener("click",function (e){
+  e.preventDefault();
+  //Hent
+  const gjøremålInput = document.querySelector("#gjøremålInput");
+  const displayDiv = document.querySelector("#displayInput");
+  console.log(gjøremålInput, displayDiv);
+
+  //Modifiser
+  const gjøremålValue = gjøremålInput.value;
+  const displayP = document.createElement("p");
+  displayP.textContent = gjøremålValue;
+  console.log(gjøremålValue,displayP);
+
+  //Send
+  displayDiv.appendChild(displayP);
+
+})
