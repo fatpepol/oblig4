@@ -1,28 +1,4 @@
-// Hent "knappen" som skal aktivere noe
-const hamburgerIcon = document.querySelector('#hamburgerIcon');
-console.log(hamburgerIcon);
 
-hamburgerIcon.addEventListener('click', function () {
-  // Hente elementet som skal bli synlig
-  const navList = document.querySelector('#navList');
-  console.log(navList);
-
-  navList.classList.remove('hidden');
-  navList.classList.add('navList');
-});
-
-const sunIcon = document.querySelector('#sunIcon');
-console.log(sunIcon);
-
-sunIcon.addEventListener('click', function () {
-  const body = document.querySelector('body');
-
-  body.classList.remove('light');
-  body.classList.add('dark');
-});
-
-//
-//
 //Gjøremåls liste knapp og input greier
 
 const sendButton = document.querySelector('#sendButton');
@@ -37,11 +13,21 @@ sendButton.addEventListener("click",function (e){
 
   //Modifiser
   const gjøremålValue = gjøremålInput.value;
+  const container = document.createElement("div");
   const displayP = document.createElement("p");
+  const removeButton = document.createElement("button");
+  container.className = "container";
+  removeButton.textContent = "X";
   displayP.textContent = gjøremålValue;
   console.log(gjøremålValue,displayP);
 
+
   //Send
-  displayDiv.appendChild(displayP);
+  container.appendChild(displayP);
+  container.appendChild(removeButton);
+  displayDiv.appendChild(container);
+  removeButton.addEventListener("click",function(e){
+    displayDiv.removeChild(container);
+  })
 
 })
